@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gastronimic Dream</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+            <form class="busca buscapc" role="search"  autocomplete="off">
+        <label for="campo-busca">🔍</label>
+        <input class="buscajs" type="search" placeholder="buscar estabelecimentos...">
+        <ul  class="container-resultado"></ul>
+        <ul  class="container-historico"></ul> 
+        </form> 
+        
+        <button class="btn-hamburguer" onclick="toggleMenu()">☰</button>
+        <!-- 2. Película escura que cobre a tela (fica invisível no início) -->
+        <div class="menu-overlay" id="menuoverlay" onclick="toggleMenu()"></div>
+        <!-- 3. A gaveta que vai deslizar da esquerda -->
+        <nav class="menu-lateral" id="menulateral">
+            <button class="btn-fechar" onclick="toggleMenu()">&times;</button>
+            <ul class="menu-links"> 
+            <li><a href="publicar.html" class="linkmenu">Publicar</a></li>
+            <li><a href="IA" class="linkmenu">IA</a></li>
+            <li><a href="Favoritos" class="linkmenu">Favoritos</a></li>
+            <li><a href="Sobre" class="linkmenu">Sobre</a></li>  
+            </ul> 
+          </nav>
+        
+        <h1> 
+            <img src="img/chefe-de-cozinha-bege.png" alt="Ícone de chapeu do chefe" class="chefe">
+            Gastronomic Dream 
+
+        </h1>
+            <nav class="menuheader">            
+            <a href="index.html" class="linkmenu">Início</a>
+            <a href="IA" class="linkmenu">IA</a>
+            <a href="Favoritos" class="linkmenu">Favoritos</a>
+            <a href="Sobre" class="linkmenu">Sobre</a>   
+            
+            <a href="../login/login.html" class="iconelogin">
+                    <img src="img/icons8-usuário-50.png" alt="Ícone de login">
+                    <span class="span">Login</span>
+            </a>
+            </nav> 
+    </header>
+
+
+        <hr class="divisoria">
+        <main>
+
+                        <h2 class="titulo-intro"><strong class="palavrascoloridas">Explore</strong>
+                            restaurantes, tenha <strong class="palavrascoloridas">Experiências</strong>
+                            inesquecíveis, e <strong class="palavrascoloridas">Compartilhe-as</strong>
+                            com a comunidade!</h2>
+
+                        <form class="buscacel" role="search"  autocomplete="off">
+        <label for="campo-busca"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icone-lupa">
+  <circle cx="11" cy="11" r="8"></circle>
+  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+</svg></label>
+        <input class="buscajs" type="search" placeholder="buscar estabelecimentos...">
+        <ul class="container-resultado"></ul>
+        <ul  class="container-historico"></ul> 
+        </form> 
+
+                        <div class="rownav">
+                            <div class="filtro">
+                                <img src="img/bandeja-de-comida.png" alt="Ícone de especialidades" class="iconefiltro">
+                                <div class="filtrotexto">
+                                    <label for="filtroespecialidade" class="filtrolabel">Especialidades</label>
+                                    <select class="filtroselect" id="filtroespecialidade">
+                                        <option value="Todos">Todos</option>
+                                        <option value="Pizzaria">Pizzaria</option>
+                                        <option value="Japonesa">Japonesa</option>
+                                        <option value="Massas">Massas</option>
+                                        <option value="Hamburguer">Hamburguer</option>
+                                        <option value="Sorveteria">Sorveteria</option>
+                                        <option value="Cafeteria">Cafeteria</option>
+                                        <option value="Confeitaria">Confeitaria</option>
+                                        <option value="buffet/kilo">buffet/kilo</option>
+                                    </select> 
+                                </div> 
+                            </div>
+
+                            <div class="filtro">
+                                <img src="img/refeicao.png" alt="Ícone de horários" class="iconefiltro">
+                                <div class="filtrotexto">
+                                    <label for="filtrohorario" class="filtrolabel">Horários</label>
+                                    <select class="filtroselect" id="filtrohorario">
+                                        <option value="Todos">Todos</option>
+                                        <option value="Café">Café</option>
+                                        <option value="Almoço">Almoço</option>
+                                        <option value="Jantar">Jantar</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="filtro">
+                                <img src="img/pacote-de-comida.png" alt="Ícone de modalidades" class="iconefiltro">
+                                <div class="filtrotexto">
+                                    <label for="filtromodalidade" class="filtrolabel">Modalidades</label>
+                                    <select class="filtroselect" id="filtromodalidade">
+                                        <option value="Todos">Todos</option>
+                                        <option value="delivery">Delivery</option>
+                                        <option value="retirada">Retirada</option>
+                                        <option value="local">Presencial</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                </div> 
+
+
+                <div id="secao-home">
+                <section class="secao-cards">
+                    <div class="introcarrosseis">         
+                        <h2>Cafés bombásticos </h2>
+                            <p>encontre os melhores cafés da sua cidade!</p>
+                    </div>
+                    <div class="carrossel-wrapper">
+                    <button class="carrossel-btn esquerda" onclick="mover('cafes', -1) ">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                        <div class="carrossel" id="cafes">
+                            
+                            <article class="card">
+                                <figure>
+                                  <a href="cafe.com.html" target="_blank">
+                                  <img src="img/cafe.com.jpg" alt="CafePontoCom" class="cafesimg">
+                                  </a>  
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="cafe.com.html" target="_blank">CaféPontoCom</a></h3>               
+                                    <span class="nota">4,7</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="01">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                            
+                            <article class="card">
+                                <figure>
+                                    <a href="versa.html" target="_blank">
+                                        <img src="img/versa.jpg" alt="Versa Café" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="versa.html" target="_blank">Versa Café</a></h3>               
+                                    <span class="nota">4,8</span>
+                                    <span class="estrelas">★★★★★</span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos" data-id="02">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <figure>
+                                    <a href="diade.html" target="_blank">
+                                        <img src="img/diade.jpg" alt="Diade café" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="diade.html" target="_blank">Diade café</a></h3>               
+                                    <span class="nota">4,7</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="03">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                    
+                            <article class="card">
+                                <figure>
+                                    <a href="meiocafe.html" target="_blank">
+                                        <img src="img/meio.jpg" alt="Meio café" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="meiocafe.html" target="_blank">Meio café</a></h3>               
+                                    <span class="nota">4,0</span>
+                                    <span class="estrelas">★★★★☆</span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="04">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                    
+                            <article class="card">
+                                <figure>
+                                    <a href="krause.html" target="_blank">
+                                        <img src="img/krause.jpg" alt="Krause café" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="krause.html" target="_blank">Krause café</a></h3>               
+                                    <span class="nota">4,3</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="05">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                
+                            <article class="card">
+                                <figure>
+                                    <a href="nonnochiesa.html" target="_blank">
+                                        <img src="img/nona.jpg" alt="Nonno chiesa" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="nonnochiesa.html" target="_blank">Nonno chiesa</a></h3>               
+                                    <span class="nota">4,8</span>
+                                    <span class="estrelas">★★★★★</span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="06">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+        
+                            <article class="card">
+                                <figure>
+                                    <a href="mccafe.html" target="_blank">
+                                        <img src="img/mccafe.jpg" alt="mc café" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="mccafe.html" target="_blank">mc café</a></h3>               
+                                    <span class="nota">3,8</span>
+                                    <span class="estrelas">★★★★☆</span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="07">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <figure>
+                                    <a href="nookcafe.html" target="_blank">
+                                        <img src="img/nookcafe.jpg" alt="nook café" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="nookcafe.html" target="_blank">nook café</a></h3>               
+                                    <span class="nota">4,8</span>
+                                    <span class="estrelas">★★★★★</span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="08">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <figure>
+                                    <a href="cafedafloris.html" target="_blank">
+                                        <img src="img/cafedafloris.jpg" alt="café da flóris" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="cafedafloris.html" target="_blank">café da flóris</a></h3>               
+                                    <span class="nota">4,7</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="09"> 
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <figure>
+                                    <a href="levecafe.html" target="_blank">
+                                        <img src="img/levecafe.jpg" alt="leve café" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="levecafe.html" target="_blank">leve café</a></h3>               
+                                    <span class="nota">4,8</span>
+                                    <span class="estrelas">★★★★★</span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="10">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                        </div>
+
+    <button class="carrossel-btn direita" onclick="mover('cafes', 1)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6"/>
+        </svg>
+    </button>
+                </div>
+                </section>
+
+    
+        <div class="bannerCTA">
+            <div class="bannerCTAcontent">
+                <div class="bannerCTAicon">
+                    <svg width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+                </div>
+
+                <div class="bannerCTAtext">
+                    <h3>Publique suas experiências</h3>
+                    <p>compartilhe, comente e ajude outras pessoas a descobrirem novos lugares!</p>
+                </div>
+
+                 <div class="bannerCTAtext_mobile">
+                    <h3>Publique suas experiências</h3>
+                    <p>compartilhe momentos com a comunidade!!</p>
+                </div>
+
+            </div>    
+
+
+                <button class="bannerCTAbuttom"> 
+                    Publicar
+                    <svg width="20" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>  
+
+                
+        </div>
+
+        <section class="secao-cards"  id="secao-cards">
+                    <div class="introcarrosseis">         
+                        <h2>Restaurantes / Buffet </h2>
+                            <p>Descubra restaurantes de dar água na boca!</p>
+                    </div>
+                    <div class="carrossel-wrapper">
+                    <button class="carrossel-btn esquerda" onclick="mover('buffet', -1)">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                        <div class="carrossel" id="buffet">
+                            
+                            <article class="card">
+                                <figure>
+                                    <a href="madremia.html" target="_blank">
+                                        <img src="img/madremia.jpg" alt="Madre Mia" class="cafesimg  carrossel_img_top">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="madremia.html" target="_blank">Madre Mia</a></h3>               
+                                    <span class="nota">4,7</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="11">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                            
+                            <article class="card">
+                                <figure>
+                                    <a href="estancia21.html" target="_blank">
+                                        <img src="img/estancia21.jpg" alt="Estacia 21" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="estancia21.html" target="_blank">Estancia 21</a></h3>               
+                                    <span class="nota">4,8</span>
+                                    <span class="estrelas">★★★★★</span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="12">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <figure>
+                                    <a href="antoniobrasa.html" target="_blank">
+                                        <img src="img/antoniobrasa.jpg" alt="Antonio Brasa e Buffet" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3>
+                                      <a href="antoniobrasa.html" target="_blank" class="completo">
+                                        Antonio Brasa e Buffet
+                                      </a>
+                                      <a href="antoniobrasa.html" target="_blank" class="abrev">
+                                        <abbr> Antonio Brasa</abbr>
+                                      </a>
+                                    </h3>               
+                                    <span class="nota">4,7</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="13">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                    
+                            <article class="card">
+                                <figure>
+                                    <a href="polonorte.html" target="_blank">
+                                        <img src="img/polonorte.jpg" alt="Polo Norte" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="polonorte.html" target="_blank">Polo Norte</a></h3>               
+                                    <span class="nota">4,7</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="14">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                    
+                            <article class="card">
+                                <figure>
+                                    <a href="alesblau.html" target="_blank">
+                                        <img src="img/alesblau.jpg" alt="Alles Blau" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="alesblau.html" target="_blank">Alles Blau</a></h3>               
+                                    <span class="nota">4,7</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google) 
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="15">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                
+                            <article class="card">
+                                <figure>
+                                    <a href="dgustus.html" target="_blank">
+                                        <img src="img/dgustus.jpg" alt="D'Gustus" class="cafesimg   carrossel_img_heavyright">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="dgustus.html" target="_blank">D'Gustus</a></h3>               
+                                    <span class="nota">4,6</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="16">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+        
+                            <article class="card">
+                                <figure>
+                                  <a href="canto.html" target="_blank">
+                                    <img src="img/canto.jpg" alt="Canto" class="cafesimg  carrossel_img_bottom"> 
+                                  </a> 
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="canto.html" target="_blank">Canto</a></h3>               
+                                    <span class="nota">4,6</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="17">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <figure>
+                                  <a href="alemao.html" target="_blank">
+                                    <img src="img/alemao.jpg" alt="Restaurante do Alemão" class="cafesimg">  
+                                  </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3>
+                                      <a href="alemao.html" target="_blank" class="completo">
+                                        Restaurante do Alemão
+                                      </a>
+                                      <a href="alemao.html" target="_blank" class="abrev">
+                                        <abbr> Rest. do Alemão</abbr>
+                                      </a>
+                                    </h3>               
+                                    <span class="nota">4,8</span>
+                                    <span class="estrelas">★★★★★</span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="18">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <figure>
+                                    <a href="cidadela.html" target="_blank">
+                                        <img src="img/cidadela.jpg" alt="Cidadela" class="cafesimg  carrossel_img_bottom">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="cidadela.html" target="_blank">Cidadela</a></h3>               
+                                    <span class="nota">4,6</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="19">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <figure>
+                                    <a href="agibe.html" target="_blank">
+                                        <img src="img/agibe.jpg" alt="Agibe" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="agibe.html" target="_blank">Agibe</a></h3>               
+                                    <span class="nota">4,4</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="20">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                        </div>
+
+    <button class="carrossel-btn direita" onclick="mover('buffet', 1)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6"/>
+        </svg>
+    </button>
+                    </div>
+        </section>
+
+        <section class="secao-cards">
+                    <div class="introcarrosseis">         
+                        <h2>Pizarrias </h2>
+                            <p>Aproveite pizzas de tirar o fôlego!</p>
+                    </div>
+                    <div class="carrossel-wrapper">
+                    <button class="carrossel-btn esquerda" onclick="mover('pizzaria', -1)">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                        <div class="carrossel" id="pizzaria">
+                            
+                            <article class="card">
+                                <figure>
+                                    <a href="celeiro.html" target="_blank">
+                                        <img src="img/celeiro(1).jpg" alt="Celeiro" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="celeiro.html" target="_blank">Celeiro</a></h3>               
+                                    <span class="nota">4,2</span>
+                                    <span class="estrelas">★★★★☆</span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="21">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                            
+                            <article class="card">
+                                <figure>
+                                    <a href="gastronomia.html" target="_blank">
+                                        <img src="img/gastronomia(1).jpg" alt="Gastronomia" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="gastronomia.html" target="_blank">Gastronimia</a></h3>               
+                                    <span class="nota">4,8</span>
+                                    <span class="estrelas">★★★★★</span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="22">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <figure>
+                                    <a href="nella.pietra.html" target="_blank">
+                                        <img src="img/nellapietra.jpg" alt="Nella Pietra" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="nella.pietra.html" target="_blank">Nella Pietra</a></h3>               
+                                    <span class="nota">4,5</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="23">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                    
+                            <article class="card">
+                                <figure>
+                                  <a href="pizzaria.premium.html" target="_blank">
+                                    <img src="img/premium(1).jpg" alt="premium" class="cafesimg">  
+                                  </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="pizzaria.premium.html" target="_blank">Pizzaria Premium</a></h3>               
+                                    <span class="nota">4,7</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="24">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                    
+                            <article class="card">
+                                <figure>
+                                  <a href="pizzaria.master.html" target="_blank">
+                                    <img src="img/master(1).jpg" alt="pizzaria master" class="cafesimg">
+                                  </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="pizzaria.master.html" target="_blank">Pizzaria Master</a></h3>               
+                                    <span class="nota">4,6</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google) 
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="25">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                
+                            <article class="card">
+                                <figure>
+                                  <a href="pizza.prime.html" target="_blank">
+                                    <img src="img/prime(1).png" alt="pizzaprime" class="cafesimg">  
+                                  </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="pizza.prime.html" target="_blank">Pizza Prime</a></h3>               
+                                    <span class="nota">4,2</span>
+                                    <span class="estrelas">★★★★☆</span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="26">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+        
+                            <article class="card">
+                                <figure>
+                                  <a href="sabores.do.sul.html" target="_blank">
+                                    <img src="img/saboresdosul.jpg" alt="SaboresDoSul" class="cafesimg">  
+                                  </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="sabores.do.sul.html" target="_blank">Sabores Do Sul</a></h3>               
+                                    <span class="nota">4,4</span>
+                                   <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="27">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <figure>
+                                    <a href="sanata.pizzaria.html" target="_blank">
+                                        <img src="img/sanata(1).jpg" alt="sanata" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="sanata.pizzaria.html" target="_blank">Sanata Pizzaria</a></h3>               
+                                    <span class="nota">4,4</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="28">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <figure>
+                                    <a href="universo.pizza.html" target="_blank">
+                                        <img src="img/universo(1).jpg" alt="Universo" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="universo.pizza.html" target="_blank">Universo da Pizza</a></h3>               
+                                    <span class="nota">4,6</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="29">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <figure>
+                                    <a href="icehot.html" target="_blank">
+                                        <img src="img/icehot.jpg" alt="IceHot" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="icehot.html" target="_blank">Ice Hot</a></h3>               
+                                    <span class="nota">4,3</span>
+                                    <span class="estrelas">★★★★☆</span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="30">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                        </div>
+
+    <button class="carrossel-btn direita" onclick="mover('pizzaria', 1)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6"/>
+        </svg>
+    </button>
+                    </div>
+        </section>
+
+         <section class="secao-cards">
+                    <div class="introcarrosseis">         
+                        <h2>Casas de lanches </h2>
+                            <p>De Baurus, até combos de hamburguer com fritas!</p>
+                    </div>
+                    <div class="carrossel-wrapper">
+                    <button class="carrossel-btn esquerda" onclick="mover('lanches', -1)">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                        <div class="carrossel" id="lanches">
+                            
+                            <article class="card">
+                                <figure>
+                                    <a href="cia09.html" target="_blank">
+                                        <img src="img/cia09.jpg" alt="CIA09" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="cia09.html" target="_blank">CIA 09</a></h3>               
+                                    <span class="nota">4,7</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="31">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                            
+                            <article class="card">
+                                <figure>
+                                  <a href="johnnie.jack.html" target="_blank">
+                                    <img src="img/JJ.jpg" alt="Johnnie jack" class="cafesimg">  
+                                  </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="johnnie.jack.html" target="_blank">Johnnie Jack</a></h3>               
+                                    <span class="nota">4,7</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="32">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <figure>
+                                  <a href="infinity.burgers.html" target="_blank">
+                                    <img src="img/infinityB.jpg" alt="Infinity Burgers" class="cafesimg"> 
+                                  </a> 
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="infinity.burgers.html" target="_blank">Infinity Burgers</a></h3>               
+                                    <span class="nota">4,7</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="33">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                    
+                            <article class="card">
+                                <figure>
+                                  <a href="lena.burguer.html" target="_blank">
+                                    <img src="img/lenaB.jpg" alt="Leña Burguer" class="cafesimg">  
+                                  </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3>
+                                      <a href="lena.burguer.html" target="_blank" class="completo">
+                                      Leña burguer y parrilla
+                                      </a>
+                                      <a href="lena.burguer.html" target="_blank" class="abrev">
+                                        <abbr>Leña Burguer</abbr>
+                                      </a>
+                                    </h3>               
+                                    <span class="nota">5,0</span>
+                                    <span class="estrelas">★★★★★</span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="34">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                    
+                            <article class="card">
+                                <figure>
+                                  <a href="petiskao.lanches.html" target="_blank">
+                                    <img src="img/petiskao.jpg" alt="Petiskão Lanches" class="cafesimg">  
+                                  </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="petiskao.lanches.html" target="_blank">Petiskão Lanches</a></h3>               
+                                    <span class="nota">4,8</span>
+                                    <span class="estrelas">★★★★★</span>
+                                    <span class="fonte">(Google) 
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="35">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                
+                            <article class="card">
+                                <figure>
+                                  <a href="heisenburger.html" target="_blank">
+                                    <img src="img/heisenburg.jpg" alt="Heisenburger" class="cafesimg">  
+                                  </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="heisenburger.html" target="_blank">Heisenburger</a></h3>               
+                                    <span class="nota">4,5</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="36">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+        
+                            <article class="card">
+                                <figure>
+                                    <a href="loschapas.html" target="_blank">
+                                        <img src="img/loschapas.jpg" alt="Los Chapas" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="loschapas.html" target="_blank">Los Chapas</a></h3>               
+                                    <span class="nota">4,7</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="37">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <figure>
+                                    <a href="circulus.lanches.html" target="_blank">
+                                        <img src="img/circulus.jpg" alt="Circulu's Lanches" class="cafesimg">
+                                    </a>
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="circulus.lanches.html" target="_blank">Circulu's Lanches</a></h3>               
+                                    <span class="nota">4,7</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="38">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <figure>
+                                  <a href="mc.donalds.html" target="_blank">
+                                    <img src="img/MC.jpg" alt="Mac Donald's" class="cafesimg "> 
+                                  </a> 
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="mc.donalds.html" target="_blank">Mac Donald's</a></h3>                
+                                    <span class="nota">4,4</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="39">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+
+                            <article class="card">
+                                <figure>
+                                  <a href="severo.garage.html" target="_blank">
+                                    <img src="img/severo.jpg" alt="Severo Garage" class="cafesimg">
+                                    </a>   
+                                </figure>
+                                <div class="card-content">
+                                    <h3><a href="severo.garage.html" target="_blank">Severo Garage</a></h3>             
+                                    <span class="nota">4,6</span>
+                                    <span class="estrelas">
+<!-- Estrela 1 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 2 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 3 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 4 -->
+  <svg viewBox="0 0 24 24" width="14" height="14" fill="#D4A017"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+  <!-- Estrela 5 (Meia Estrela) -->
+  <svg viewBox="0 0 24 24" width="14" height="14">
+    <defs>
+      <linearGradient id="metade">
+        <stop offset="50%" stop-color="#D4A017"/>
+        <stop offset="50%" stop-color="#E0E0E0"/>
+      </linearGradient>
+    </defs>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="url(#metade)"/>
+  </svg></span>
+                                    <span class="fonte">(Google)
+                                        <button class="btn-favorito" aria-label="Adicionar aos favoritos"  data-id="40">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icone-coracao">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+</button>
+                                    </span>
+                                </div>
+                            </article>
+                        </div>
+
+    <button class="carrossel-btn direita" onclick="mover('lanches', 1)">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6"/>
+        </svg>
+    </button>
+                    </div>
+        </section>
+        </div>
+    <div id="secao-filtrados">
+    <section class="secao-filtrados">
+        <div class="cabecalho-filtros introcarrosseis">
+    <h2>Resultados da Busca</h2>
+    <button id="btn-voltar-home">← Voltar para o Início</button>
+  </div>
+    <div id="container-cards-filtrados" class="grid-cards"></div>
+</section>
+</div>
+        </main>
+
+    <!-- ==========================================================================
+     7. RODAPÉ (FOOTER)
+     ========================================================================== -->
+<footer class="rodape">
+    <div class="rodape-conteudo">
+        
+        <!-- Coluna 1: Sobre / Marca -->
+        <div class="rodape-coluna">
+            <h3 class="rodape-logo">
+                Guia de Restaurantes
+            </h3>
+            <p class="rodape-descricao">
+                Descubra os melhores cafés, restaurantes e experiências gastronômicas da cidade em um só lugar.
+            </p>
+            <div class="redes-sociais">
+                <a href="#" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </a>
+                <a href="#" aria-label="Facebook">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </a>
+                <a href="#" aria-label="WhatsApp">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                </a>
+            </div>
+        </div>
+
+        <!-- Coluna 2: Links Rápidos -->
+        <div class="rodape-coluna">
+            <h4 class="rodape-titulo">Navegação</h4>
+            <ul class="rodape-links">
+                <li><a href="#">Início</a></li>
+                <li><a href="#">IA</a></li>
+                <li><a href="#">Favoritos</a></li>
+                <li><a href="#">Sobre Nós</a></li>
+            </ul>
+        </div>
+
+        <!-- Coluna 3: Categorias -->
+        <div class="rodape-coluna">
+            <h4 class="rodape-titulo">Explorar</h4>
+            <ul class="rodape-links">
+                <li><a href="#">Cafeterias</a></li>
+                <li><a href="#">Almoço & Buffet</a></li>
+                <li><a href="#">Hamburguerias</a></li>
+                <li><a href="#">Pizzarias</a></li>
+            </ul>
+        </div>
+
+        <!-- Coluna 4: Newsletter -->
+        <div class="rodape-coluna">
+            <h4 class="rodape-titulo">Novidades no seu e-mail</h4>
+            <p class="rodape-subtexto">Receba indicações dos melhores lugares semanalmente.</p>
+            <form class="rodape-newsletter" onsubmit="event.preventDefault();">
+                <input type="email" placeholder="Seu e-mail principal" required>
+                <button type="submit" aria-label="Inscrever-se">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Divisória e Direitos Autorais -->
+    <div class="rodape-bottom">
+        <hr>
+        <p>&copy; 2026 Guia de restaurantes. Feito com ☕ e paixão.</p>
+    </div>
+</footer>
+        <script src="script.js"></script>
+    </body>
+</html>
