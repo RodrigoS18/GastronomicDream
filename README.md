@@ -6,11 +6,11 @@
 
 ## 🚀 Sobre o Projeto
 
-O Gastronomic Dream nasceu da vontade de criar uma ferramenta prática e intuitiva para quem adora explorar novos lugares para comer. O site permite aos utilizadores pesquisar estabelecimentos, aplicar filtros avançados por especialidade, horário ou modalidade, visualizar avaliações detalhadas (com sistema de meia-estrela) e gerir os seus restaurantes favoritos diretamente no navegador.
+O Gastronomic Dream nasceu da vontade de criar uma ferramenta para quem adora explorar novos lugares para comer. O site permite aos utilizadores pesquisar estabelecimentos, aplicar filtros avançados por especialidade, horário ou modalidade, visualizar avaliações detalhadas (com sistema de meia-estrela) e gerir os seus restaurantes favoritos diretamente no navegador.
 Vale ressaltar que ele é apenas um projeto com finalidade de praticar e se aperfeiçoar, e não fins comerciais.
 ---
 
-O Gastronomic Dream nasceu da vontade de criar uma ferramenta para quem adora explorar novos lugares para comer.
+
 ## ✨ Funcionalidades
 
 - **🔍 Sistema de Busca Duplo:** feito tanto para dispositivos móveis quanto para computadores.
