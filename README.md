@@ -10,6 +10,7 @@ O Gastronomic Dream nasceu da vontade de criar uma ferramenta prática e intuiti
 Vale ressaltar que ele é apenas um projeto com finalidade de praticar e se aperfeiçoar, e não fins comerciais.
 ---
 
+O Gastronomic Dream nasceu da vontade de criar uma ferramenta para quem adora explorar novos lugares para comer.
 ## ✨ Funcionalidades
 
 - **🔍 Sistema de Busca Duplo:** feito tanto para dispositivos móveis quanto para computadores.
