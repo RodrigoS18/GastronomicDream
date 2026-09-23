@@ -210,13 +210,20 @@ function renderizarfiltrados(lista) {
         container.innerHTML = '<p class="sem-resultado">Nenhum resultado foi encontrado</p>';
         return;
     }
+    // Cria o fragmento em memória
+    const fragmento = document.createDocumentFragment();
 
     lista.forEach(restaurante => {
         const eFavorito = favoritos.includes(String(restaurante.id));
         
-        container.innerHTML += `
-        <article class="card">
-          <figure>
+        // Cria o elemento article na memória
+        const article = document.createElement('article');
+        article.className = 'card';
+        
+        // Define o HTML interno do card
+        article.innerHTML = `
+          
+        <figure>
             <img src="${restaurante.img || 'img/default.png'}" alt="${restaurante.nome}" class="cafesimg">  
           </figure>
           <div class="card-content">
@@ -231,9 +238,10 @@ function renderizarfiltrados(lista) {
               </svg>
             </button>
           </div>
-        </article>
       `;
+      fragmento.appendChild(article);
     });
+    container.appendChild(fragmento);
 }
 
 /**
@@ -286,16 +294,16 @@ const estabelecimentos = [
     {id: 8, nome: 'nook café', link: 'nook.cafe.html', nota: '4.8', especialidades: 'Cafeteria', horarios: ['Café', 'Almoço'], modalidades: 'Todos', img: 'img/nookcafe.jpg'},
     {id: 9, nome: 'café da flóris', link: 'café da floris.html', nota: '4.7', especialidades: 'Cafeteria', horarios: ['Café', 'Almoço'], modalidades: 'Todos', img: 'img/cafedafloris.jpg'},
     {id: 10, nome: 'leve café', link: 'leve.cafe.html', nota: '4.8', especialidades:'Cafeteria', horarios: ['Café', 'Almoço'], modalidades: 'Todos', img: 'img/levecafe.jpg'},
-    {id: 11, nome: 'Madre Mia', link:'madre.mia.html', nota: '4.7', especialidades: 'buffet/kilo', horarios: ['Almoço', 'Jantar'], modalidades: 'Todos', img: 'img/madremia.jpg'},
-    {id: 12, nome: 'Estancia 21', link: 'estancia.21.html', nota: '4.8', especialidades: 'buffet/kilo', horarios: ['Almoço', 'Jantar'], modalidades: 'Todos', img: 'img/estancia21.jpg'},
-    {id: 13, nome: 'Antonio Brasa e Buffet', link: 'antonio.brasa.e.buffet.html', nota: '4.7', especialidades: 'buffet/kilo', horarios: ['Almoço', 'Jantar'], modalidades: 'Todos', img: 'img/antoniobrasa.jpg'},
-    {id: 14, nome: 'Polo Norte', link: 'polo.norte.html', nota: '4.7', especialidades: 'buffet/kilo', horarios: 'Almoço', modalidades: 'Todos', img: 'img/polonorte.jpg'}, 
-    {id: 15, nome: 'Alles Blau', link: 'alles.blau.html', nota: '4.7', especialidades: 'buffet/kilo', horarios: ['Almoço', 'Jantar'], modalidades: 'Presencial', img: 'img/alesblau.jpg'},
-    {id: 16, nome: "D'Gustus", link: "dgustus.html", nota: '4.6', especialidades: 'buffet/kilo', horarios: 'Almoço', modalidades: 'Todos', img: 'img/dgustus.jpg'}, 
-    {id: 17, nome: 'Canto', link: 'canto.html', nota: '4.6', especialidades: 'buffet/kilo', horarios: ['Almoço', 'Jantar'], modalidades: 'Presencial', img: 'img/canto.jpg'}, 
-    {id: 18, nome: 'Restaurante do Alemao', link: 'restaurante.do.alemao.html', nota: '4.8', especialidades: 'buffet/kilo', horarios: 'Almoço', modalidades: ['Presencial', 'Retirada'], img: 'img/alemao.jpg'},
-    {id: 19, nome: 'Cidadela', link: 'cidadela.html', nota: '4.6', especialidades: 'buffet/kilo', horarios: 'Almoço', modalidades: 'Todos', img: 'img/cidadela.jpg'},
-    {id: 20, nome: 'Agibe', link: 'agibe.html', nota: '4.4', especialidades: 'buffet/kilo', horarios: ['Almoço','Jantar'], modalidades: 'Todos', img: 'img/agibe.jpg'},
+    {id: 11, nome: 'Madre Mia', link:'madre.mia.html', nota: '4.7', especialidades: 'Buffet/kilo', horarios: ['Almoço', 'Jantar'], modalidades: 'Todos', img: 'img/madremia.jpg'},
+    {id: 12, nome: 'Estancia 21', link: 'estancia.21.html', nota: '4.8', especialidades: 'Buffet/kilo', horarios: ['Almoço', 'Jantar'], modalidades: 'Todos', img: 'img/estancia21.jpg'},
+    {id: 13, nome: 'Antonio Brasa e Buffet', link: 'antonio.brasa.e.buffet.html', nota: '4.7', especialidades: 'Buffet/kilo', horarios: ['Almoço', 'Jantar'], modalidades: 'Todos', img: 'img/antoniobrasa.jpg'},
+    {id: 14, nome: 'Polo Norte', link: 'polo.norte.html', nota: '4.7', especialidades: 'Buffet/kilo', horarios: 'Almoço', modalidades: 'Todos', img: 'img/polonorte.jpg'}, 
+    {id: 15, nome: 'Alles Blau', link: 'alles.blau.html', nota: '4.7', especialidades: 'Buffet/kilo', horarios: ['Almoço', 'Jantar'], modalidades: 'Presencial', img: 'img/alesblau.jpg'},
+    {id: 16, nome: "D'Gustus", link: "dgustus.html", nota: '4.6', especialidades: 'Buffet/kilo', horarios: 'Almoço', modalidades: 'Todos', img: 'img/dgustus.jpg'}, 
+    {id: 17, nome: 'Canto', link: 'canto.html', nota: '4.6', especialidades: 'Buffet/kilo', horarios: ['Almoço', 'Jantar'], modalidades: 'Presencial', img: 'img/canto.jpg'}, 
+    {id: 18, nome: 'Restaurante do Alemao', link: 'restaurante.do.alemao.html', nota: '4.8', especialidades: 'Buffet/kilo', horarios: 'Almoço', modalidades: ['Presencial', 'Retirada'], img: 'img/alemao.jpg'},
+    {id: 19, nome: 'Cidadela', link: 'cidadela.html', nota: '4.6', especialidades: 'Buffet/kilo', horarios: 'Almoço', modalidades: 'Todos', img: 'img/cidadela.jpg'},
+    {id: 20, nome: 'Agibe', link: 'agibe.html', nota: '4.4', especialidades: 'Buffet/kilo', horarios: ['Almoço','Jantar'], modalidades: 'Todos', img: 'img/agibe.jpg'},
     {id: 21, nome: 'Celeiro', link: 'Celeiro.html', nota: '4.2', especialidades: 'Pizzaria', horarios: 'Jantar', modalidades: 'Todos', img: 'img/celeiro(1).jpg'},
     {id: 22, nome: 'Gatronomia', link: 'Gatronomia.html', nota: '4.8', especialidades: 'Pizzaria', horarios: 'Jantar', modalidades: 'Todos', img: 'img/gastronomia(1).jpg'},
     {id: 23, nome: 'Nella Pietra', link: 'Nella.Pietra.html', nota: '4.5', especialidades: 'Pizzaria', horarios: 'Jantar', modalidades: 'Todos', img: 'img/nellapietra.jpg'},
@@ -432,11 +440,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const btnVoltarhome = document.querySelector('#btn-voltar-home');
     if (btnVoltarhome) {
         btnVoltarhome.addEventListener('click', () => {
-            const secaoHome = document.querySelector('#secao-home');
-            const secaoFiltrados = document.querySelector('#secao-filtrados');
-
-            if (secaoFiltrados) secaoFiltrados.style.display = 'none';
-            if (secaoHome) secaoHome.style.display = 'block';
+            location.reload();
         });
     }
 
